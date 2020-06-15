@@ -1,0 +1,15 @@
+.btn{
+  display: flex;
+  margin-top: 15px;
+  padding: 0;
+}
+
+#btn2{
+  margin-left: 20px;
+/*   background-color: #BDBDBD;
+  color: white; */
+}
+
+.teste{
+  margin-left: 14px;
+}

@@ -1,0 +1,114 @@
+<div class="p-col-10 p-offset-1">
+
+  <p-menubar [model]="items">
+    <input type="text" pInputText placeholder="Procurar">
+    <button pButton label="Sair" icon="pi pi-power-off"></button>
+  </p-menubar>
+
+</div>
+
+<div class="p-col-10 p-offset-1">
+
+  <p-messages [(value)]="msgs"></p-messages>
+
+  <p-card>
+
+    <p-panel header="Novo funcionário" [toggleable]="true">
+
+      <form (ngSubmit)="saveFuncionario(f)" #f="ngForm">
+        <br>
+        <div class="p-grid ui-fluid">
+
+          <div class="p-col-12 p-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-user-plus" style="line-height: 1.25;"></i></span>
+              <input type="text" pInputText placeholder="Nome" [(ngModel)]="funcionario.nome" id="nome" name="nome"
+                pTooltip="Informe o nome">
+            </div>
+          </div>
+
+          <div class="p-col-12 p-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-id-card" style="line-height: 1.25;"></i></span>
+              <input type="text" pInputText placeholder="Departamento" [(ngModel)]="funcionario.departamento"
+                id="departamento" name="departamento" pTooltip="Informe o departamento">
+            </div>
+          </div>
+        </div>
+
+        <div class="btn">
+          <!-- <button pButton id="btn1" type="submit" label="Salvar" (click)="saveFuncionario(f)"></button> -->
+          <button pButton id="btn1" type="submit" label="Salvar"></button>
+          <button pButton class="ui-button-secondary" id="btn2" type="reset" label="Cancelar"
+            (click)="cleanForm(f)"></button>
+        </div>
+
+      </form>
+
+    </p-panel>
+
+    <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+
+    <p-table p-table #dt [columns]="cols" [value]="funcionarios" [paginator]="true" [rows]="rows"
+      [showCurrentPageReport]="true" [(first)]="first"
+      currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [style]="{'margin-top':'4em'}"
+      [responsive]="true" selectionMode="multiple" [(selection)]="selectedFuncionarios">
+
+      <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix" style="text-align: center">
+
+          <!-- <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()"
+            style="margin-right: 0.5em;"></button> -->
+          <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="dt.exportCSV()"
+          style="margin-right: 0.5em;" class="ui-button-success" style="float:left"></button>
+
+          <!-- <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()"
+            style="margin-right: 0.5em;" class="ui-button-success"></button> -->
+
+          <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()"
+            class="ui-button-warning teste" style="float:left"></button>
+
+          <!-- Nexus Gerenciamento de Funcionários -->
+          LISTA DE FUNCIONÁRIOS
+
+          <button type="button" pButton icon="pi pi-file" iconPos="left" label="CSV - Somente seleção"
+            (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-funcionarios>
+        <tr>
+          <th *ngFor="let col of funcionarios">
+            {{col.header}}
+          </th>
+
+          <th style="width:8em">Ações</th>
+
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-funcionarios="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of funcionarios">
+            {{rowData[col.field]}}
+          </td>
+
+          <td style="text-align:center">
+            <button pButton type="button" icon="pi pi-pencil" class="ui-button-warning" id="btn1"
+              (click)="editFuncionario(rowData)"></button>
+            <button pButton type="button" icon="pi pi-trash" class="ui-button-danger" id="btn2"
+              (click)="confirm(rowData)"></button>
+          </td>
+
+        </tr>
+
+      </ng-template>
+
+    </p-table>
+
+  </p-card>
+
+
+</div>
+<!--Fim class-->
