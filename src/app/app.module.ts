@@ -26,10 +26,12 @@ import {MessageModule} from 'primeng/message';
 import {TooltipModule} from 'primeng/tooltip';
 
 import {KeyFilterModule} from 'primeng/keyfilter';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

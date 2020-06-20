@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   rows = 5;
 
   funcionario = {} as Funcionario;
-  items: MenuItem[];
 
   funcionarios: Funcionario[];
   selectedFuncionarios: Funcionario[];
@@ -45,44 +44,6 @@ export class AppComponent implements OnInit {
     ];
 
     this.exportColumns = this.cols.map(col => ({ title: col.header, dataKey: col.field }));
-
-    this.items = [
-      {
-        label: 'Home',
-        icon: 'pi pi-fw pi-home',
-      },
-      {
-        label: 'Cadastros',
-        icon: 'pi pi-fw pi-save',
-        items: [{
-          label: 'New',
-          icon: 'pi pi-fw pi-plus',
-          items: [
-            { label: 'Project' },
-            { label: 'Other' },
-          ]
-        },
-        { label: 'Open' },
-        { label: 'Quit' }
-        ]
-      },
-      {
-        label: 'Processos',
-        icon: 'pi pi-fw pi-sitemap',
-        items: [
-          { label: 'Proc Rel', icon: 'pi pi-fw pi-table' },
-          { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-        ]
-      },
-      {
-        label: 'Relatórios',
-        icon: 'pi pi-fw pi-print',
-        items: [
-          { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-          { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-        ]
-      }
-    ];
 
   }
 
