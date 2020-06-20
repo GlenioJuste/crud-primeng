@@ -1,0 +1,49 @@
+{
+  "funcionarios": [
+    {
+      "nome": "Glenio",
+      "departamento": "Fábrica",
+      "id": 1
+    },
+    {
+      "nome": "Maria Rosa",
+      "departamento": "Financeiro do Lar",
+      "id": 2
+    },
+    {
+      "nome": "Luna",
+      "departamento": "Segurança Residencial",
+      "id": 3
+    },
+    {
+      "nome": "Jauri",
+      "departamento": "Java",
+      "id": 4
+    },
+    {
+      "nome": "Raul",
+      "departamento": "Banco de Dados",
+      "id": 5
+    },
+    {
+      "nome": "José",
+      "departamento": "Programação",
+      "id": 6
+    },
+    {
+      "nome": "Carlos",
+      "departamento": "Fábrica",
+      "id": 7
+    },
+    {
+      "nome": "Zé do Morro",
+      "departamento": "Transporte",
+      "id": 9
+    },
+    {
+      "nome": "Tashibra",
+      "departamento": "Financeiro",
+      "id": 10
+    }
+  ]
+}
