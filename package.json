@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "file-saver": "^2.0.2",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.5.3",
     "primeflex": "^1.1.1",
     "primeicons": "^4.0.0-rc.2",
