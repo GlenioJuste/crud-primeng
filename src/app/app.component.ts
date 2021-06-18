@@ -97,8 +97,6 @@ export class AppComponent implements OnInit {
     return JSON.parse(JSON.stringify(funcionarios));
   }
 
-
-  // defini se um funcionario será criado ou atualizado
   saveFuncionario(form: NgForm) {
     if (this.funcionario.id !== undefined) {
       this.funcionarioService.updateFuncionario(this.funcionario).subscribe(() => {
@@ -113,31 +111,23 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // Chama o serviço para obtém todos os funcionarios
   getFuncionarios() {
     this.funcionarioService.getFuncionarios().subscribe((funcionarios: Funcionario[]) => {
       this.funcionarios = funcionarios;
     });
   }
 
-  // deleta um Funcionarioro
   deleteFuncionario(funcionario: Funcionario) {
     this.funcionarioService.deleteFuncionario(funcionario).subscribe(() => {
       this.getFuncionarios();
     });
   }
 
-  // copia o Funcionario para ser editado.
   editFuncionario(funcionario: Funcionario) {
     this.funcionario = { ...funcionario };
 
-    // não atualiza, grava novo registro
-    /*     this.funcionario.nome = funcionario.nome;
-        this.funcionario.departamento = funcionario.departamento; */
-
   }
 
-  // limpa o formulario
   cleanForm(form: NgForm) {
     this.getFuncionarios();
     form.resetForm();

@@ -9,17 +9,14 @@ import { Funcionario } from '../models/funcionario';
 })
 export class FuncionarioService {
 
-  url = 'http://localhost:3000/funcionarios'; // api rest fake
+  url = 'http://localhost:3000/funcionarios';
 
-  // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
 
-  // Headers
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  // Obtem todos os Funcionarios
   getFuncionarios(): Observable<Funcionario[]> {
     return this.httpClient.get<Funcionario[]>(this.url)
       .pipe(
@@ -27,7 +24,6 @@ export class FuncionarioService {
         catchError(this.handleError));
   }
 
-  // Obtem um Funcionario pelo id
   getFuncionarioById(id: number): Observable<Funcionario> {
     return this.httpClient.get<Funcionario>(this.url + '/' + id)
       .pipe(
@@ -36,7 +32,6 @@ export class FuncionarioService {
       );
   }
 
-  // salva um Funcionario
   saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
     return this.httpClient.post<Funcionario>(this.url, JSON.stringify(funcionario), this.httpOptions)
       .pipe(
@@ -45,7 +40,6 @@ export class FuncionarioService {
       );
   }
 
-  // utualiza um Funcionario
   updateFuncionario(funcionario: Funcionario): Observable<Funcionario> {
     return this.httpClient.put<Funcionario>(this.url + '/' + funcionario.id, JSON.stringify(funcionario), this.httpOptions)
       .pipe(
@@ -54,7 +48,6 @@ export class FuncionarioService {
       );
   }
 
-  // deleta um Funcionario
   deleteFuncionario(funcionario: Funcionario) {
     return this.httpClient.delete<Funcionario>(this.url + '/' + funcionario.id, this.httpOptions)
       .pipe(
@@ -63,14 +56,11 @@ export class FuncionarioService {
       );
   }
 
-  // Manipulação de erros
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Erro ocorreu no lado do client
       errorMessage = error.error.message;
     } else {
-      // Erro ocorreu no lado do servidor
       errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
     }
     console.log(errorMessage);

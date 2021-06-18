@@ -30,7 +30,7 @@ https://www.npmjs.com/package/xlsx
 npm install xlsx
 
 
-<h3 class="first">Nexus Gerenciamento de Funcionários</h3>
+<h3 class="first">Gerenciamento de Funcionários</h3>
 <p-table [value]="funcionarios">
     <ng-template pTemplate="header">
         <tr>
